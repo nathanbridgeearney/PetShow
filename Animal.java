@@ -3,9 +3,9 @@
 // You may not distribute it in any other way without permission.
 
 /* Code for COMP-102-112 - 2021T1, Assignment 2
- * Name:
- * Username:
- * ID:
+ * Name: Nathan Bridge-Earney
+ * Username:bridgenath1
+ * ID:300565456
  */
 
 import ecs100.*;

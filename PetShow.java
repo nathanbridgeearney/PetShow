@@ -24,10 +24,14 @@ public class PetShow{
      */
     public void animate(){
         /*# YOUR CODE HERE */
-        Animal dog = new Animal("dog","Scruff",100,50);
-        Animal bird = new Animal("bird", "Fletcher", 300,100);
-
-
+        Animal dog = new Animal("dog","Scruff",100,100);
+        Animal bird = new Animal("bird", "Fletcher", 400,200);
+        bird.jump(200);
+        bird.speak("Scruff come");
+        dog.goRight(100);
+        bird.shout("jump");
+        dog.jump(20);
+        bird.think("This dumb dog listens to me");
 
     }
 
@@ -41,15 +45,19 @@ public class PetShow{
      */
     public void threeAnimalsRoutine(){
         /*# YOUR CODE HERE */
-
+        Animal dog = new Animal("dog","Gin",100,100);
+        Animal bird = new Animal("bird", "Fletcher", 400,200);
+        Animal snake = new Animal("snake", "Tonic", 250,200);
+        this.routine(dog,bird,snake);
     }
 
-    /** makes the animal character do a little routine
-     */
-    // public void routine(... ){
+    /** makes the animal character do a little routine*/
+    public void routine(Animal dog, Animal bird, Animal snake){
     /*# YOUR CODE HERE */
+        
+        dog.goRight(20);
 
-    // }
+     }
 
     /** Make buttons to let the user run the methods */
     public void setupGUI(){
