@@ -118,6 +118,32 @@ public class Animal {
         this.draw();
         UI.sleep(500);
     }
+    public void up(double dist) {
+        this.erase();
+        this.imageY = this.imageY - dist*0.7;
+        this.draw();
+        UI.sleep(100);
+        this.erase();
+        this.imageY = this.imageY - dist*0.3;
+        this.draw();
+    }
+    public void down(double dist){
+        this.erase();
+        this.imageY = this.imageY + dist*0.1;
+        this.draw();
+        UI.sleep(100);
+        this.erase();
+        this.imageY = this.imageY + dist*0.1;
+        this.draw();
+        this.erase();
+        this.imageY = this.imageY + dist*0.3;
+        this.draw();
+        UI.sleep(100);
+        this.erase();
+        this.imageY = this.imageY + dist*0.3;
+        this.draw();
+        UI.sleep(100);
+    }
 
     /** makes the Animal say something in a speech box */
     public void speak(String words) {

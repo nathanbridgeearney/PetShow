@@ -48,16 +48,68 @@ public class PetShow{
         Animal dog = new Animal("dog","Gin",100,100);
         Animal bird = new Animal("bird", "Fletcher", 400,200);
         Animal snake = new Animal("snake", "Tonic", 250,200);
-        this.routine(dog,bird,snake);
+        routine(dog); routine(bird); routine(snake);
     }
 
     /** makes the animal character do a little routine*/
-    public void routine(Animal dog, Animal bird, Animal snake){
+    public void routine(Animal pet){
     /*# YOUR CODE HERE */
-        
-        dog.goRight(20);
-
+        pet.goRight(20); pet.goLeft(20); pet.jump(10); pet.shout("3"); pet.shout("2");
+        pet.shout("1"); pet.jump(40);
      }
+    public void challengeRoutine(){
+        Animal dog = new Animal("dog","Gin",100,100);
+        Animal bird = new Animal("bird", "Fletcher", 100,400);
+        Animal snake = new Animal("snake", "Tonic", 400,200);
+        UI.fillRect(300,200,100,100);
+        introJump(dog); introJump(bird); introJump(snake); bird.down(300);dog.down(300);upLeft(snake);
+        moveRightJump(dog); moveRightJump(bird); snake.down(300); dog.up(300); bird.up(300); eat(snake,bird);
+        dog.goRight(150); bird.up(150); snake.goRight(300); upLeft(bird); dog.goLeft(130);
+        bird.goLeft(500); giveUp(snake,bird);chase(dog,snake);giveUp(dog,snake); offScreen(dog,snake);
+
+
+    }
+    public void introJump(Animal pet){
+        pet.introduce("");
+        pet.jump(20);
+    }
+    public void upLeft(Animal pet){
+        pet.up(125);
+        pet.goLeft(300);
+    }
+    public void moveRightJump(Animal pet){
+        pet.goRight(300);
+        pet.jump(20);
+    }
+    public void eat(Animal pred, Animal prey){
+        pred.shout("Im going");
+        pred.shout("To eat you");
+        prey.speak("Dog can you help?");
+    }
+    public void giveUp(Animal pred, Animal prey){
+        pred.speak("I give up");
+        prey.speak("Im leaving");
+
+    }
+    public void offScreen(Animal pred, Animal prey){
+        prey.goLeft(600);
+        pred.goLeft(600);
+    }
+
+    public void chase(Animal pred, Animal prey){
+        for (int i = 0; i<2; i++ ){
+            prey.goLeft(300);
+            pred.down(500);
+            prey.up(350);
+            pred.goLeft(300);
+            prey.goRight(300);
+            pred.up(400);
+            prey.down(500);
+            pred.goRight(300);
+        }
+        pred.down(50);
+    }
+
 
     /** Make buttons to let the user run the methods */
     public void setupGUI(){
@@ -65,6 +117,7 @@ public class PetShow{
         UI.addButton("Clear", UI::clearGraphics );
         UI.addButton("Animate", this::animate );
         UI.addButton("Three", this::threeAnimalsRoutine );
+        UI.addButton("Challenge", this::challengeRoutine);
         UI.addButton("Quit", UI::quit );
         UI.setDivider(0);       // Expand the graphics area
     }
